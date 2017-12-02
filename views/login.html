@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+
+    <title>Ambiente - Shop for elegance</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/shop-homepage.css" rel="stylesheet">
+    <link href="/static/css/login.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+  {% include "includes/nav.html" %}
+
+  <!-- Page Content -->
+  <div class="container">
+
+      <div class="row">
+          <div class="col-md-12">
+              <ol class="breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li class="active">Login</li>
+              </ol>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-center">
+          <h3> Login with </h3>
+        </div>
+      </div>
+
+      <div class="row onl_row-sm-offset-3 onl_socialButtons">
+          <div class="col-xs-2 col-sm-2">
+            <a href="/auth/linkedin" class="btn btn-lg btn-block onl_btn-linkedin" data-toggle="tooltip" data-placement="top" title="LinkedIn">
+              <i class="fa fa-linkedin fa-2x"></i>
+              <span class="hidden-xs"></span>
+            </a>
+          </div>
+          <div class="col-xs-2 col-sm-2">
+            <a href="/auth/twitter" class="btn btn-lg btn-block onl_btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+              <i class="fa fa-twitter fa-2x"></i>
+              <span class="hidden-xs"></span>
+            </a>
+          </div>
+          <div class="col-xs-2 col-sm-2">
+            <a href="/auth/github" class="btn btn-lg btn-block onl_btn-github" data-toggle="tooltip" data-placement="top" title="GitHub">
+              <i class="fa fa-github fa-2x"></i>
+              <span class="hidden-xs"></span>
+            </a>
+          </div>
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+  {% include "includes/footer.html" %}
+
+</body>
+
+</html>

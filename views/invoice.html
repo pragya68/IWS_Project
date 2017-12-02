@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+
+    <title>Ambiente - Shop for elegance</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/shop-homepage.css" rel="stylesheet">
+    <link href="/static/css/invoice.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+{% include "includes/nav.html" %}
+
+    <div class="container">
+      <div class="row">
+          <div class="col-xs-12">
+          <div class="invoice-title">
+            <h2>Invoice</h2><h3 class="pull-right">Order #{{order._id}}</h3>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-6">
+              <address>
+              <strong>Billed To:</strong><br>
+                {{order.userDetails.name}}<br>
+                {{order.userDetails.address}}
+              </address>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <address>
+                <strong>Payment Method:</strong><br>
+                Credit Card **** **** **** {{ order.userDetails.card }}<br>
+                {{order.userDetails.email}}
+              </address>
+            </div>
+            <div class="col-xs-6 text-right">
+              <address>
+                <strong>Order Date:</strong><br>
+                {{order.date}}<br><br>
+              </address>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong>Order summary</strong></h3>
+            </div>
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table table-condensed">
+                  <thead>
+                                  <tr>
+                        <td><strong>Item</strong></td>
+                        <td class="text-center"><strong>Price</strong></td>
+                        <td class="text-center"><strong>Quantity</strong></td>
+                        <td class="text-right"><strong>Totals</strong></td>
+                                  </tr>
+                  </thead>
+                  <tbody>
+                    <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                    {% for item in order.items %}
+                        <tr>
+                          <td>{{item.title}}</td>
+                          <td class="text-center">{{item.price}}</td>
+                          <td class="text-center">{{item.quantity}}</td>
+                          <td class="text-right">{{item.price * item.quantity}}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                      <td class="thick-line"></td>
+                      <td class="thick-line"></td>
+                      <td class="thick-line text-center"><strong>Subtotal</strong></td>
+                      <td class="thick-line text-right">{{order.totalCost}}</td>
+                    </tr>
+                    <tr>
+                      <td class="no-line"></td>
+                      <td class="no-line"></td>
+                      <td class="no-line text-center"><strong>Shipping</strong></td>
+                      <td class="no-line text-right">Free</td>
+                    </tr>
+                    <tr>
+                      <td class="no-line"></td>
+                      <td class="no-line"></td>
+                      <td class="no-line text-center"><strong>Total</strong></td>
+                      <td class="no-line text-right">{{order.totalCost}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-4 col-md-offset-4 text-center">
+          <a href="/myprofile" class="btn btn-success btn-block"> Proceed </a>
+        </div>
+      </div>
+    </div>
+
+{% include "includes/footer.html" %}
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+MongoDB
+    Contains Databases
+        Contains Collections
+            Contains Documents which are JSON formatted documents.
+
+Server 
+    1. Start server with 'mongod' command
+    2. Use live shell with 'mongo' command
+    3. Use 'mongoimport' command to push data into mongoDB
+
+Queries 
+    1. Find
+        db.item.find({ "price" : { $gte : 10 } }).pretty();
+        db.item.findOne({});
+        db.item.findOne({ "_id" : 2 });
+        db.item.find({ "price" : { $gte : 10 } }, { "title" : 1, "slogan" : 1 } ).pretty();
+        
+        Consists of -
+            1. Find query.
+            2. Projection to filter out results.
+    
+    2. Update
+        db.item.update({ "_id" : 2 }, { "title" : "New title here" });
+        db.item.update({ "price" : { $gte : 10 } }, { "title" : "New title here" });
+        
+        Consists of -
+            1. Find query.
+            2. Query to update data with.
+            
+            
+        
+            
